@@ -17,6 +17,7 @@
    body{
      overflow: hidden;
    }
+
    </style>
    <body>
       <div class="page-wrapper page">
@@ -25,13 +26,25 @@
             <canvas id="canvasOne" class="dusty" width="1280" height="1420"></canvas>
             <canvas id="canvasAustro" class="austro" width="600" height="640"></canvas>
             <div class="center">
-              <div style="background-color:rgab(0,0,0,0.2); font-size : 2em; color:rgba(255,255,255,0.8); position:relative;">
-                {!! $uid===""?"":$uid !!}
+
+
+
+
+
+              <div class="centered"  style="display:none;width:60%;background-color:white; font-size : 3em; color:black; position:relative;z-index:101;">
+                <br>{!! $uid===""?"":$uid !!} <br>
                 {!! $name===""?"":$name !!}
-                {!! $surname===""?"":$surname !!}
-                ({!! $department===""?"":$department !!})
+                {!! $surname===""?"":$surname !!} <br>
+                {!! $department===""?"":$department !!}<br><br>
               </div>
-               <img src="img/logo-main.png" alt="Easyrocket" class="logo-main centered" width="600" style="z-index:100;">
+
+
+
+
+
+              <div id="output" class="logo-main centered" style="background-color:rgab(0,0,0,0.2); font-size : 5em; color:rgba(255,255,255,0.8); position:relative;z-index:100; margin-top:25%"></div>
+
+
                <div class="tiny-stars" style="margin-top:-45%">
                  <img src="img/stars2.svg" alt="">
                </div>
@@ -62,7 +75,59 @@
          <canvas id="stars-cursor"></canvas>
       </body>
 
+      <script src="js/vendor/jquery-2.1.1.min.js"></script>
+
       <script type="text/javascript">
         document.getElementById("uid").focus();
+      </script>
+
+      <script type="text/javascript">
+        $(document).ready(function(){
+          var theLetters = "1234567890"; //You can customize what letters it will cycle through
+          var ctnt = "{!! $uid===""?"":$uid !!}"; // Your text goes here
+          var speed = 60; // ms per frame
+          var increment = 23; // frames per step. Must be >2
+
+
+          var clen = ctnt.length;
+          var si = 0;
+          var stri = 0;
+          var block = "";
+          var fixed = "";
+          //Call self x times, whole function wrapped in setTimeout
+          (function rustle (i) {
+          setTimeout(function () {
+          if (--i){rustle(i);}
+          nextFrame(i);
+          si = si + 1;
+          }, speed);
+          })(clen*increment+1);
+          function nextFrame(pos){
+          for (var i=0; i<clen-stri; i++) {
+            //Random number
+            var num = Math.floor(theLetters.length * Math.random());
+            //Get random letter
+            var letter = theLetters.charAt(num);
+            block = block + letter + ' ';
+          }
+          if (si == (increment-1)){
+            stri++;
+          }
+          if (si == increment){
+          // Add a letter;
+          // every speed*10 ms
+          fixed = fixed +  ctnt.charAt(stri - 1) + ' ';
+          si = 0;
+          }
+          $("#output").html(fixed + block);
+          block = "";
+          }
+          });
+
+          setTimeout(function () {
+            $("#output").html('{!! $uid===""?"":$uid !!}'+'<br><br><span style="font-size: 60px">'+'{!! $name===""?"":$name !!}'+' '+'{!! $surname===""?"":$surname !!}'+'</span><br><br>'+
+            '{!! $department===""?"":$department !!}');
+            $("#output").css({"margin-top":"17%", "font-size": "5em"});
+          }, 17000);
       </script>
 </html>

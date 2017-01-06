@@ -4,18 +4,18 @@ namespace App\Http\Controllers;
 
 use Auth;
 use Input;
-use Adldap;
-use Adldap\Contracts\AdldapInterface;
+// use Adldap;
+// use Adldap\Contracts\AdldapInterface;
 use App\Repositories\AccountRepositoryInterface;
 
 class AlchemistController extends ACMBaseController{
 
-  protected $adldap;
+  // protected $adldap;
   protected $AccountRepository;
 
-  public function __construct(AdldapInterface $adldap,AccountRepositoryInterface $AccountRepository)
+  public function __construct(AccountRepositoryInterface $AccountRepository)
     {
-        $this->adldap = $adldap;
+        // $this->adldap = $adldap;
         $this->AccountRepository = $AccountRepository;
     }
 

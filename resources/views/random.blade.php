@@ -25,11 +25,11 @@
             <canvas id="canvasOne" class="dusty" width="1280" height="1420"></canvas>
             <canvas id="canvasAustro" class="austro" width="600" height="640"></canvas>
             <div class="center">
-              <div style="background-color:white">
-                student id : {!! $uid===""?"":$uid !!}
-                name : {!! $name===""?"":$name !!}
-                surname : {!! $surname===""?"":$surname !!}
-                department : {!! $department===""?"":$department !!}
+              <div style="background-color:rgab(0,0,0,0.2); font-size : 2em; color:rgba(255,255,255,0.8); position:relative;">
+                {!! $uid===""?"":$uid !!}
+                {!! $name===""?"":$name !!}
+                {!! $surname===""?"":$surname !!}
+                ({!! $department===""?"":$department !!})
               </div>
                <img src="img/logo-main.png" alt="Easyrocket" class="logo-main centered" width="600" style="z-index:100;">
                <div class="tiny-stars" style="margin-top:-45%">
@@ -39,6 +39,12 @@
                  <img src="img/stars3.svg" alt="">
                </div>
                <div class="planet-big centered" style="margin-top:-45%">
+                  <span class="round round-1"></span>
+                  <span class="round round-2"></span>
+                  <span class="round round-3"></span>
+                  <span class="round round-1"></span>
+                  <span class="round round-2"></span>
+                  <span class="round round-3"></span>
                   <span class="round round-1"></span>
                   <span class="round round-2"></span>
                   <span class="round round-3"></span>

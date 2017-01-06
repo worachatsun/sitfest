@@ -26,15 +26,17 @@
             <canvas id="canvasAustro" class="austro" width="600" height="640"></canvas>
             <div class="center">
               <div class="">
-                <form class="" action="index" method="post">
+                <form class="" action="index" method="post" style="">
                   {{ csrf_field() }}
-                  <input type="text" id="uid" name="uid" value="" style="position:relative;z-index:-1000">
+                  <input type="text" id="uid" name="uid" value="" autofocus style="
+      z-index: -100;
+      position: relative;">
                 </form>
                 <div style="background-color:white">
-                  student id : {!! $uid===""?"":$uid !!}
-                  name : {!! $name===""?"":$name !!}
-                  surname : {!! $surname===""?"":$surname !!}
-                  department : {!! $department===""?"":$department !!}
+                  {!! $uid===""?"":$uid !!}
+                  {!! $name===""?"":$name !!}
+                  {!! $surname===""?"":$surname !!}
+                  ({!! $department===""?"":$department !!})
                 </div>
               </div>
                <img src="img/logo-main.png" alt="Easyrocket" class="logo-main centered" width="600" style="z-index:100;">
@@ -61,7 +63,6 @@
          <canvas id="world-3" class="planet-3-orbit" width="800" height="600"></canvas>
          <canvas id="stars-cursor"></canvas>
       </body>
-
       <script type="text/javascript">
         document.getElementById("uid").focus();
       </script>

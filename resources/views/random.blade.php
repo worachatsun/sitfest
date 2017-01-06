@@ -55,12 +55,6 @@
                   <span class="round round-1"></span>
                   <span class="round round-2"></span>
                   <span class="round round-3"></span>
-                  <span class="round round-1"></span>
-                  <span class="round round-2"></span>
-                  <span class="round round-3"></span>
-                  <span class="round round-1"></span>
-                  <span class="round round-2"></span>
-                  <span class="round round-3"></span>
                   <span class="round round-4"></span>
                   <span class="round round-5"></span>
                </div>
@@ -76,10 +70,6 @@
       </body>
 
       <script src="js/vendor/jquery-2.1.1.min.js"></script>
-
-      <script type="text/javascript">
-        document.getElementById("uid").focus();
-      </script>
 
       <script type="text/javascript">
         $(document).ready(function(){

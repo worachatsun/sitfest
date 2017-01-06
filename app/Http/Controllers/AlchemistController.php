@@ -35,6 +35,10 @@ class AlchemistController extends ACMBaseController{
     }
 
     public function getRandom(){
+      return view('firstrandom');
+    }
+
+    public function getRandomnow(){
       $data = $this->AccountRepository->random();
       return view('random', $data);
     }

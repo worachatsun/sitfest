@@ -28,7 +28,7 @@
               <div class="">
                 <form class="" action="index" method="post" style="">
                   {{ csrf_field() }}
-                  <input type="text" id="uid" name="uid" value="" autofocus style="opacity: 0;">
+                  <input type="text" id="uid" name="uid" value="" autofocus style="opacity: 0;" autocomplete="off">
                 </form>
                 <div style="background-color:rgab(0,0,0,0.2); font-size : 2em; color:rgba(255,255,255,0.6); position:relative;">
                   {!! $uid===""?"":$uid !!}
